@@ -9,6 +9,14 @@ const instructions = Platform.select({
 });
 
 export default class HomePage extends Component {
+  constructor(props){
+    super(props);
+    this.goToSecondPage = this.goToSecondPage.bind(this);
+  }
+  goToSecondPage(){
+    console.log('going to second page');
+    this.props.navigation.navigate('Second');
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -17,7 +25,7 @@ export default class HomePage extends Component {
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.instructions}>This is the HomePage</Text>
         <Button 
-          onPress={() => this.props.navigation.navigate('Second')}
+          onPress={this.goToSecondPage}
           title={'Go to SecondPage'}
         />
       </View>
